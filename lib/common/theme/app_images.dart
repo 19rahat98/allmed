@@ -1,0 +1,64 @@
+class AppSvgIcons {
+  static const icMapPoint = 'assets/icons/ic_map_point.svg';
+  static const icMapPointFilled = 'assets/icons/ic_map_point_filled.svg';
+  static const icHomePageFilled = 'assets/icons/ic_home_filled.svg';
+  static const icHomePageOutline = 'assets/icons/ic_home_outline.svg';
+  static const icHistoryFilled = 'assets/icons/ic_history_filled.svg';
+  static const icHistoryOutline = 'assets/icons/ic_history_outline.svg';
+  static const icQuestionSquareOutline = 'assets/icons/ic_question_square_outline.svg';
+  static const icQuestionSquare = 'assets/icons/ic_question_square.svg';
+  static const icUserFilled = 'assets/icons/ic_user_filled.svg';
+  static const icUserOutline = 'assets/icons/ic_user_outline.svg';
+  static const icAltArrowDown = 'assets/icons/ic_alt_arrow_down.svg';
+  static const icNotificationBellOutline = 'assets/icons/ic_notification_bell_outline.svg';
+  static const icPayCard = 'assets/icons/ic_pay_card.svg';
+  static const icFirstAid = 'assets/icons/ic_first_aid.svg';
+  static const icStethoscope = 'assets/icons/ic_stetoscope.svg';
+  static const icCheckCircle = 'assets/icons/ic_check_circle.svg';
+  static const icPenOutline = 'assets/icons/ic_pen_outline.svg';
+  static const icClose = 'assets/icons/ic_close.svg';
+  static const icAddCircleOutline = 'assets/icons/ic_add_circle_outline.svg';
+  static const icAddSquareOutline = 'assets/icons/ic_add_square_outline.svg';
+  static const icCalendarOutline = 'assets/icons/ic_calendar_outline.svg';
+  static const icVisibilityPassword = 'assets/icons/ic_visibility_password.svg';
+  static const icVisibilityOffPassword = 'assets/icons/ic_visibility_off_password.svg';
+  static const icQuestionCircle = 'assets/icons/ic_question_circle.svg';
+  static const icAppLogo = 'assets/icons/ic_app_logo.svg';
+  static const icInfoCircle = 'assets/icons/ic_info_circle.svg';
+  static const icLockKeyhole = 'assets/icons/ic_lock_keyhole.svg';
+  static const icTickSquare = 'assets/icons/ic_tick_square.svg';
+  static const icTickCircle = 'assets/icons/ic_tick_circle.svg';
+  static const icCompassSquare = 'assets/icons/ic_compass_square.svg';
+  static const icSettings = 'assets/icons/ic_settings.svg';
+  static const icChatLine = 'assets/icons/ic_chat_line.svg';
+  static const icLogOut = 'assets/icons/ic_log_out.svg';
+  static const icLinkedinCircle = 'assets/icons/ic_linkedin_circle.svg';
+  static const icYoutubeCircle = 'assets/icons/ic_youtube_circle.svg';
+  static const icInstagramCircle = 'assets/icons/ic_instagram_circle.svg';
+  static const icInstagram = 'assets/icons/ic_instagram.svg';
+  static const icAddCircleFilled = 'assets/icons/ic_add_circle_filled.svg';
+  static const icContactsFrame = 'assets/icons/ic_contacts_frame.svg';
+  static const icPhoneRounded = 'assets/icons/ic_phone_rounded.svg';
+  static const icChatRound = 'assets/icons/ic_chat_round.svg';
+  static const icCompassCircle = 'assets/icons/ic_compass_circle.svg';
+  static const icChinaLanguage = 'assets/icons/ic_chaina_language.svg';
+  static const icDeleteUser = 'assets/icons/ic_delete_user.svg';
+  static const icStar = 'assets/icons/ic_star.svg';
+  static const icMapArrow = 'assets/icons/ic_map_arrow.svg';
+  static const icMinusCircle = 'assets/icons/ic_minus_circle.svg';
+  static const icInfoCircleFilled = 'assets/icons/ic_info_circle_filled.svg';
+}
+
+class AppIcons {
+  static const icFirstAid = 'assets/icons/ic_first_aid.png';
+  static const icCheckup = 'assets/icons/ic_checkup.png';
+  static const icCrutches = 'assets/icons/ic_crutches.png';
+  static const icMedicalRecord = 'assets/icons/ic_medical_record.png';
+  static const icStethoscope = 'assets/icons/ic_stetoscope.png';
+  static const icDefibrillator = 'assets/icons/ic_defibrillator.png';
+  static const icPills = 'assets/icons/ic_pills.png';
+  static const icVisa = 'assets/icons/ic_visa.png';
+  static const icMasterCard = 'assets/icons/ic_master_card.png';
+  static const icToPay = 'assets/icons/ic_to_pay.png';
+  static const icMapExample = 'assets/icons/ic_map_example.png';
+}
