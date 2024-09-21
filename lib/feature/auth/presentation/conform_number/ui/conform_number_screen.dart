@@ -132,8 +132,15 @@ class _ConformNumberScreenState extends State<ConformNumberScreen> {
                       errorAnimationController: _errorController,
                       animationDuration: const Duration(milliseconds: 300),
                       enableActiveFill: true,
-                      onCompleted: (v) =>
-                          context.read<ConformNumberCubit>().verify(widget.phoneNumber, v, resetToken: widget.resetToken),
+                      onSaved: (v) => context
+                          .read<ConformNumberCubit>()
+                          .verify(widget.phoneNumber, v ?? '', resetToken: widget.resetToken),
+                      onSubmitted: (v) => context
+                          .read<ConformNumberCubit>()
+                          .verify(widget.phoneNumber, v, resetToken: widget.resetToken),
+                      onCompleted: (v) => context
+                          .read<ConformNumberCubit>()
+                          .verify(widget.phoneNumber, v, resetToken: widget.resetToken),
                     ),
                   ),
                   const Spacer(),

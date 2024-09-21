@@ -119,49 +119,55 @@ class PaymentCubit extends CoreCubit {
     if (!valid) return;
 
     final state = _commonState();
-    final cryptogram = await Cloudpayments.cardCryptogram(
-      cardCVC: card.cardCVC,
-      cardDate: card.cardDate,
-      cardNumber: card.cardNumber,
-      publicId: GlobalCommonConstants.cloudPaymentApiKey,
-    );
-    final request = _payment.paymentWithCardCrypto(
-      _orderId,
-      cryptogram.cryptogram ?? GlobalCoreConstants.empty,
-    );
+    try {
+      final cryptogram = await Cloudpayments.cardCryptogram(
+        cardCVC: card.cardCVC,
+        cardDate: card.cardDate,
+        cardNumber: card.cardNumber,
+        publicId: GlobalCommonConstants.cloudPaymentApiKey,
+      );
+      final request = _payment.paymentWithCardCrypto(
+        _orderId,
+        cryptogram.cryptogram ?? GlobalCoreConstants.empty,
+      );
 
-    launchWithError<Payment3dsResponse?, HttpRequestException>(
-      request: request,
-      loading: (isLoading) => emit(
-        state.copyWith(isLoading: true),
-      ),
-      resultData: (data) async {
-        if (data == null) {
-          emit(
-            SuccessPaymentState(),
+      launchWithError<Payment3dsResponse?, HttpRequestException>(
+        request: request,
+        loading: (isLoading) => emit(
+          state.copyWith(isLoading: true),
+        ),
+        resultData: (data) async {
+          if (data == null) {
+            emit(
+              SuccessPaymentState(),
+            );
+            return;
+          }
+
+          final result = await Cloudpayments.show3ds(
+            acsUrl: data.acsUrl,
+            transactionId: data.transactionId.toString(),
+            paReq: data.paReq,
           );
-          return;
-        }
 
-        final result = await Cloudpayments.show3ds(
-          acsUrl: data.acsUrl,
-          transactionId: data.transactionId.toString(),
-          paReq: data.paReq,
-        );
-
-        await launch3ds(
-          int.tryParse(result?.md ?? '1') ?? 0,
-          result?.paRes ?? GlobalCoreConstants.empty,
-          _orderId,
-          onSuccess: (_) => emit(
-            SuccessPaymentState(),
-          ),
-        );
-      },
-      errorData: (error) => emit(
+          await launch3ds(
+            int.tryParse(result?.md ?? '1') ?? 0,
+            result?.paRes ?? GlobalCoreConstants.empty,
+            _orderId,
+            onSuccess: (_) => emit(
+              SuccessPaymentState(),
+            ),
+          );
+        },
+        errorData: (error) => emit(
+          CoreHttpErrorState(error: S.current.errorOccurred),
+        ),
+      );
+    } catch (e) {
+      emit(
         CoreHttpErrorState(error: S.current.errorOccurred),
-      ),
-    );
+      );
+    }
   }
 
   /// Метод для добавления новой карты
@@ -169,52 +175,58 @@ class PaymentCubit extends CoreCubit {
     final valid = _validateCard(card);
     if (!valid) return;
 
-    final state = _commonState();
-    final cryptogram = await Cloudpayments.cardCryptogram(
-      cardCVC: card.cardCVC,
-      cardDate: card.cardDate,
-      cardNumber: card.cardNumber,
-      publicId: GlobalCommonConstants.cloudPaymentApiKey,
-    );
-    final request = _payment.saveNewCard(cryptogram.cryptogram ?? GlobalCoreConstants.empty);
+    try {
+      final state = _commonState();
+      final cryptogram = await Cloudpayments.cardCryptogram(
+        cardCVC: card.cardCVC,
+        cardDate: card.cardDate,
+        cardNumber: card.cardNumber,
+        publicId: GlobalCommonConstants.cloudPaymentApiKey,
+      );
+      final request = _payment.saveNewCard(cryptogram.cryptogram ?? GlobalCoreConstants.empty);
 
-    launchWithError<Payment3dsResponse?, HttpRequestException>(
-      request: request,
-      loading: (isLoading) => emit(
-        state.copyWith(isLoading: true),
-      ),
-      resultData: (data) async {
-        if (data == null) {
-          emit(
-            SuccessAddedNewCard(),
-          );
-          getUserCards(_orderId);
-          return;
-        }
-
-        final result = await Cloudpayments.show3ds(
-          acsUrl: data.acsUrl,
-          transactionId: data.transactionId.toString(),
-          paReq: data.paReq,
-        );
-
-        await launch3ds(
-          int.tryParse(result?.md ?? '1') ?? 0,
-          result?.paRes ?? GlobalCoreConstants.empty,
-          _orderId,
-          isSaveCard: true,
-          onSuccess: (_) {
+      launchWithError<Payment3dsResponse?, HttpRequestException>(
+        request: request,
+        loading: (isLoading) => emit(
+          state.copyWith(isLoading: true),
+        ),
+        resultData: (data) async {
+          if (data == null) {
             emit(
               SuccessAddedNewCard(),
             );
             getUserCards(_orderId);
-          },
-        );
-      },
-      errorData: (error) => emit(
+            return;
+          }
+
+          final result = await Cloudpayments.show3ds(
+            acsUrl: data.acsUrl,
+            transactionId: data.transactionId.toString(),
+            paReq: data.paReq,
+          );
+
+          await launch3ds(
+            int.tryParse(result?.md ?? '1') ?? 0,
+            result?.paRes ?? GlobalCoreConstants.empty,
+            _orderId,
+            isSaveCard: true,
+            onSuccess: (_) {
+              emit(
+                SuccessAddedNewCard(),
+              );
+              getUserCards(_orderId);
+            },
+          );
+        },
+        errorData: (error) => emit(
+          CoreHttpErrorState(error: S.current.errorOccurred),
+        ),
+      );
+    } catch (e) {
+      emit(
         CoreHttpErrorState(error: S.current.errorOccurred),
-      ),
-    );
+      );
+    }
   }
 
   /// Метод для запуска 3DS верификации

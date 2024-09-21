@@ -72,20 +72,24 @@ class BannerContentScreen extends StatelessWidget {
                 ),
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20),
-              child: RichText(
-                textAlign: TextAlign.center,
-                text: TextSpan(
-                  text: 'Источник: ',
-                  style: AppTextStyle.caption1,
-                  children: <TextSpan>[
-                    TextSpan(
-                      text: item.urlStr,
-                      recognizer: TapGestureRecognizer()..onTap = () => launchLinks(item.sourceUrl),
-                      style: AppTextStyle.caption1.copyWith(color: AppColors.primaryColor),
-                    ),
-                  ],
+            InkWell(
+              onTap: () => launchLinks(item.sourceUrl),
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20),
+                child: RichText(
+                  textAlign: TextAlign.center,
+                  text: TextSpan(
+                    text: 'Источник: ',
+                    style: AppTextStyle.caption1,
+                    children: <TextSpan>[
+                      TextSpan(
+                        text: item.urlStr,
+                        recognizer: TapGestureRecognizer()
+                          ..onTap = () => launchLinks(item.sourceUrl),
+                        style: AppTextStyle.caption1.copyWith(color: AppColors.primaryColor),
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ),

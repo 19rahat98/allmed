@@ -56,6 +56,7 @@ class OrderConformScreen extends StatelessWidget {
             backgroundColor: Colors.white,
             appBar: AppBar(
               backgroundColor: AppColors.superGray,
+              surfaceTintColor: AppColors.superGray,
               elevation: 0,
               automaticallyImplyLeading: false,
               actions: [
@@ -81,6 +82,7 @@ class OrderConformScreen extends StatelessWidget {
               ],
             ),
             body: SingleChildScrollView(
+              padding: const EdgeInsets.only(bottom: 80),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [

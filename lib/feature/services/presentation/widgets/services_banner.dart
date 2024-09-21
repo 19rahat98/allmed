@@ -110,7 +110,28 @@ class ServicesBanner extends StatelessWidget {
                       ),
                       title: item.name,
                       iconPath: item.image,
-                      subTitle: S.current.online,
+                      subTitle: S.current.serviceProcessOnHome,
+                      trailingContent: Container(
+                        width: 60,
+                        padding: const EdgeInsets.only(top: 8),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              S.current.find,
+                              style: AppTextStyle.secondary.copyWith(
+                                fontWeight: FontWeight.w700,
+                                color: AppColors.primaryColor,
+                              ),
+                            ),
+                            const Icon(
+                              Icons.arrow_forward_ios_rounded,
+                              size: 14,
+                              color: AppColors.primaryColor,
+                            ),
+                          ],
+                        ),
+                      ),
                     );
                   },
                 ),

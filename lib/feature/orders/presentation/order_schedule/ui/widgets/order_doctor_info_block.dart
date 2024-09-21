@@ -36,9 +36,9 @@ class OrderDoctorInfoBlock extends StatelessWidget {
           title: 'Сумма',
           subTitle: order.price,
         ),
-        const OrderDetailTileItem(
+        OrderDetailTileItem(
           title: 'Статус',
-          subTitle: 'Завершен',
+          subTitle: order.completed,
           subtitleColor: AppColors.primaryColor,
         ),
       ],

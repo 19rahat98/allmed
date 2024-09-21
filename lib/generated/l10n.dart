@@ -120,10 +120,10 @@ class S {
     );
   }
 
-  /// `Вызов на дом`
+  /// `Консультация и лечение не выходя из дома`
   String get houseCall {
     return Intl.message(
-      'Вызов на дом',
+      'Консультация и лечение не выходя из дома',
       name: 'houseCall',
       desc: '',
       args: [],
@@ -155,6 +155,16 @@ class S {
     return Intl.message(
       'Онлайн',
       name: 'online',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Услуги процедурного кабинета у вас дома`
+  String get serviceProcessOnHome {
+    return Intl.message(
+      'Услуги процедурного кабинета у вас дома',
+      name: 'serviceProcessOnHome',
       desc: '',
       args: [],
     );

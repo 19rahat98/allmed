@@ -62,7 +62,6 @@ class CompletedOrderItem extends StatelessWidget {
         ),
       ),
       trailing: Image.asset(AppIcons.icFirstAid),
-      leading: order.isOrderCompleted ? Container(width: 10, color: Colors.red) : null,
     );
   }
 }

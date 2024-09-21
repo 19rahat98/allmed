@@ -125,7 +125,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "goOver": MessageLookupByLibrary.simpleMessage("Перейти"),
         "helpToOrder": MessageLookupByLibrary.simpleMessage("Помощь с заказом"),
         "history": MessageLookupByLibrary.simpleMessage("История"),
-        "houseCall": MessageLookupByLibrary.simpleMessage("Вызов на дом"),
+        "houseCall": MessageLookupByLibrary.simpleMessage(
+            "Консультация и лечение не выходя из дома"),
         "ifYouHaveQuestionChatManager": MessageLookupByLibrary.simpleMessage(
             "У Вас возникли вопросы - наши менеджера помогут Вам."),
         "iin": MessageLookupByLibrary.simpleMessage("ИИН"),
@@ -201,6 +202,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "selectSex": MessageLookupByLibrary.simpleMessage("Выберите пол"),
         "send": MessageLookupByLibrary.simpleMessage("Отправить"),
         "serviceDoctor": MessageLookupByLibrary.simpleMessage("Услуги врача"),
+        "serviceProcessOnHome": MessageLookupByLibrary.simpleMessage(
+            "Услуги процедурного кабинета у вас дома"),
         "services": MessageLookupByLibrary.simpleMessage("Услуги"),
         "setInfoAboutAddressForCallDoctor": MessageLookupByLibrary.simpleMessage(
             "Предоставьте информацию о вашем местоположении, чтобы наши сотрудники могли вовремя прибыть по адресу."),

@@ -12,4 +12,6 @@ class GlobalNetworkConstant {
 
   static const notFoundStatus = 404;
 
+  static const apiUrl = 'http://185.146.3.139:81/api/v1';
+  static const serverToken = 'ef568c83-8b88-4333-9529-40977e31cb29';
 }

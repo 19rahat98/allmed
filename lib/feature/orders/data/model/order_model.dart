@@ -65,7 +65,7 @@ class OrderModel {
   /// Конструктор модели заказа. Инициализирует все поля модели.
   OrderModel({
     this.id = GlobalCoreConstants.zeroInt,
-    this.completed = GlobalCoreConstants.zeroInt,
+    this.completed = GlobalCoreConstants.empty,
     this.serviceName = GlobalCoreConstants.empty,
     this.doctorName = GlobalCoreConstants.empty,
     this.doctorImage = GlobalCoreConstants.empty,
@@ -89,7 +89,7 @@ class OrderModel {
   final String day;
   final String createdAt;
   final String servicePrice;
-  final int completed;
+  final String completed;
   final String doctorRating;
   final String address;
   final String? addressApartment;
@@ -110,7 +110,7 @@ class OrderModel {
       day: json['day'] as String? ?? GlobalCoreConstants.empty,
       createdAt: json['created_at'] as String? ?? GlobalCoreConstants.empty,
       servicePrice: json['service_price'] as String? ?? GlobalCoreConstants.empty,
-      completed: json['completed'] as int? ?? GlobalCoreConstants.zeroInt,
+      completed: json['completed'] as String? ?? GlobalCoreConstants.empty,
       address: json['address'] as String? ?? GlobalCoreConstants.empty,
       addressApartment: json['address_apartment'] as String?,
       addressFloor: json['address_floor'] as String?,
@@ -169,7 +169,7 @@ class OrderModel {
   /// Возвращает отформатированную строку, представляющую день и время заказа
   String get orderDate => '$orderDay, $startTime-$endTime';
 
-  bool get isOrderCompleted => completed != 1;
+  bool get isOrderCompleted => completed == 'Завершен';
 }
 
 /// Класс для хранения информации о заказах.

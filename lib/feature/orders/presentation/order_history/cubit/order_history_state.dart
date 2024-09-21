@@ -1,6 +1,6 @@
 part of 'order_history_cubit.dart';
 
-class OrderHistoryListState extends CoreState {
+class OrderHistoryListState extends CoreIndexedState {
   OrderHistoryListState(this.historyOrders);
 
   final OrderHistoryModel historyOrders;

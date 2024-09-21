@@ -81,6 +81,7 @@ class _AddNewCardModalState extends State<AddNewCardModal> {
                       AppModalHeader(S.of(context).newCard),
                       AppLabelTextFieldWidget(
                         controller: _cardController,
+                        inputType: TextInputType.number,
                         label: S.of(context).cardNumber,
                         errorMessage: state.cardNumberError,
                         onValueChanged: widget.cubit.removeErrors,
@@ -93,6 +94,7 @@ class _AddNewCardModalState extends State<AddNewCardModal> {
                           Expanded(
                             child: AppLabelTextFieldWidget(
                               controller: _dateController,
+                              inputType: TextInputType.number,
                               errorMessage: state.cardDateError,
                               label: S.of(context).validityPeriod,
                               onValueChanged: widget.cubit.removeErrors,
@@ -105,6 +107,7 @@ class _AddNewCardModalState extends State<AddNewCardModal> {
                             child: AppLabelTextFieldWidget(
                               label: S.of(context).cvv,
                               controller: _cvvController,
+                              inputType: TextInputType.number,
                               errorMessage: state.cardCvcError,
                               onValueChanged: widget.cubit.removeErrors,
                               textInputFormatters: [_cvvNumberController],
